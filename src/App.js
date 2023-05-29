@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useRef, useEffect } from "react";
+import threeSetup from "./threeSetup";
 
-function App() {
+function MyComponent() {
+  const container = useRef(null);
+
+  useEffect(() => {
+    threeSetup(container.current);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container" ref={container}>
+      <h1>My Virtual Interior Design Platform</h1>
+      <p>Design your dream home interiors in 3D!</p>
     </div>
   );
 }
 
-export default App;
+export default MyComponent;
